@@ -5,7 +5,7 @@
         [scrollTop]="scrollMe.scrollHeight"
     >
         <div *ngIf="(messageService.messageThread$ | async)?.length === 0">
-            No messages yet... say hi by using the message box below
+            Hãy gửi lời chào đến người này ngay!
         </div>
 
         <ul 
@@ -23,11 +23,11 @@
                                 <span class="fa fa-clock-o">{{message.messageSent | timeago}}</span>
                                 <span class="text-danger" *ngIf="!message.dateRead 
                                     && message.senderUsername !== username">
-                                    (unread)
+                                    (đã nhận)
                                 </span>
                                 <span class="text-success" *ngIf="message.dateRead 
                                     && message.senderUsername !== username">
-                                    (read {{message.dateRead | timeago}})
+                                    (đã đọc) {{message.dateRead | timeago}})
                                 </span>
                             </small>
                         </div>
@@ -49,7 +49,7 @@
                     class="form-control input-sm" 
                     placeholder="Send a private message">
                 <div class="input-group-append">
-                    <button [disabled]="!messageForm.valid || loading" class="btn btn-primary" type="submit">Send
+                    <button [disabled]="!messageForm.valid || loading" class="btn btn-primary" type="submit">Gửi
                         <i *ngIf="loading" class="fa fa-spinner fa-spin"></i>
                     </button>
                 </div>

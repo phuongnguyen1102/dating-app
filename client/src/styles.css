@@ -24,7 +24,7 @@
   }
   
   .member-tabset > .nav-tabs > li.active {
-    border-bottom: 4px solid #E95420;
+    border-bottom: 4px solid black !important;
     position: relative;
   }
   
@@ -44,4 +44,15 @@
     border-top: 1px solid #eee;
     padding: 15px 0;
   }
-  
+
+html,
+body {
+    font-family: Arial !important;
+}
+.bg-image { 
+  background-image: url("../src/assets/home.jpg"); 
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

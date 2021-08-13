@@ -43,7 +43,7 @@ namespace API.Controllers
 
             var user = await _userManager.FindByNameAsync(username);
 
-            if (user == null) return NotFound("Could not find user");
+            if (user == null) return NotFound("Không tìm thấy người dùng này");
 
             var userRoles = await _userManager.GetRolesAsync(user);
 

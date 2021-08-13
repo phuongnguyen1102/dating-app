@@ -1,4 +1,3 @@
-using System;
 using API.Data;
 using API.Helpers;
 using API.Interfaces;
@@ -24,19 +23,7 @@ namespace API.Extensions
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddDbContext<DataContext>(options =>
             {
-                var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-
-                string connStr = "";
-
-                // Depending on if in development or production, use either Heroku-provided
-                // connection string, or development connection string from env var.
-                if (env == "Development")
-                {
-                    // Use connection string from file.
-                    connStr = config.GetConnectionString("DefaultConnection");
-                }
-                
-                options.UseSqlServer(connStr);
+                options.UseSqlServer(config.GetConnectionString("DefaultConnection"));
             });
 
             return services;
